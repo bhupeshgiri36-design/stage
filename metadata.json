@@ -1,0 +1,6 @@
+{
+  "name": "Champions Tera Bhai - Virtual Reality Show Stage",
+  "description": "An interactive ultra-high-graphics reality competition show stage with animated anchor, friend seat unlock ceremony, moving chairs, multi-cam broadcast, and interactive gameplay.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

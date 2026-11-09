@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #05060b;
+  color: #f8fafc;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* Custom Display Typography */
+.font-display {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-crown {
+  font-family: 'Cinzel', serif;
+}
+
+/* Stage Perspective & Ground Shadows (Guarantees zero floating effect) */
+.stage-perspective {
+  perspective: 1200px;
+  perspective-origin: 50% 60%;
+}
+
+.stage-floor {
+  transform: rotateX(55deg);
+  transform-style: preserve-3d;
+}
+
+/* Floor contact shadow to anchor characters firmly */
+.ground-contact-shadow {
+  box-shadow: 0 16px 28px -4px rgba(0, 0, 0, 0.95), 0 6px 12px -2px rgba(0, 0, 0, 0.8);
+}
+
+.chair-base-shadow {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 75%);
+}
+
+.desk-ground-shadow {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 85%);
+}
+
+/* Sweeping Studio Spotlights */
+@keyframes sweep-left {
+  0%, 100% {
+    transform: rotate(-18deg) scaleY(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: rotate(10deg) scaleY(1.15);
+    opacity: 0.8;
+  }
+}
+
+@keyframes sweep-right {
+  0%, 100% {
+    transform: rotate(18deg) scaleY(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: rotate(-10deg) scaleY(1.15);
+    opacity: 0.8;
+  }
+}
+
+@keyframes stadium-pulse {
+  0%, 100% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 20px rgba(255, 180, 0, 0.4));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 35px rgba(255, 200, 0, 0.75));
+  }
+}
+
+@keyframes idle-breathe {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.008);
+  }
+}
+
+@keyframes mouth-talk {
+  0%, 100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1.2);
+  }
+}
+
+@keyframes chair-unlock-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 22px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.animate-sweep-left {
+  animation: sweep-left 7s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.animate-sweep-right {
+  animation: sweep-right 7s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.animate-stadium-pulse {
+  animation: stadium-pulse 3s ease-in-out infinite;
+}
+
+.animate-idle-breathe {
+  animation: idle-breathe 3.5s ease-in-out infinite;
+}
+
+.animate-mouth-talk {
+  animation: mouth-talk 0.18s ease-in-out infinite;
+}
+
+.animate-chair-unlock-ring {
+  animation: chair-unlock-glow 1.5s infinite;
+}
+
+@keyframes character-head-bob {
+  0%, 100% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  30% {
+    transform: rotate(-3deg) translateY(-1px);
+  }
+  70% {
+    transform: rotate(3deg) translateY(-0.5px);
+  }
+}
+
+@keyframes buzzer-hit {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  40% {
+    transform: scale(0.92) translateY(4px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes camera-robot-pan {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes neon-ring-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-character-head {
+  animation: character-head-bob 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-buzzer-hit {
+  animation: buzzer-hit 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.animate-camera-pan {
+  animation: camera-robot-pan 8s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.animate-ring-slow {
+  animation: neon-ring-spin 60s linear infinite;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
